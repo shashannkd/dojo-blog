@@ -4,27 +4,21 @@ import BlogList from './BlogList';
 
 const Home = () => {
     const [blogs, setBlogs] = useState(null)
-
-    const [name, setName] = useState('mario');
-    const handleDelete = (blogId) => {
-        const updatedBlogsArray = blogs.filter(blog => blog.id !== blogId)
-        setBlogs(updatedBlogsArray)
-    }
-
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         console.log('useEffect ran')
         fetch('http://localhost:8000/blogs').then((res) => { return res.json(); }).then((data) => {
             console.log('data :>> ', data);
             setBlogs(data)
+            setIsLoading(false);
         })
     }, [])
 
     return (
         <div className="home">
-            {blogs && <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />}
-            <button onClick={() => setName('luigi')}>chnage name</button>
-            <p>{name}</p>
 
+            {isLoading && <div>Loading...</div>}
+            {blogs && <BlogList blogs={blogs} title="All Blogs" />}
         </div>
     );
 }
