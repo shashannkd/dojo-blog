@@ -31,7 +31,8 @@ const useFetch = (url) => {
                 setError(err.message);
             }
         })
-        return () => console.log('cleanup');
+        // abort the fetch
+        return () => abortController.abort();
     }, [url])
 
     return { data, isLoading, error };
