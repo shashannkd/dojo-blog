@@ -17,6 +17,9 @@ const BlogDetails = () => {
                     <div>{blog.body}</div>
                 </article>
             )}
+            <a href="/">
+                Go back to All Blogs
+            </a>
         </div>);
 }
 
