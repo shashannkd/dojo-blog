@@ -118,3 +118,10 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+/*Not Found Page*/
+.not-found div p{
+  color: #f1356d;
+  font-size: 15px;
+  font-weight: 600;
+}
