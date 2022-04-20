@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom'
+
 const NotFound = () => {
+    const linkStyle = {
+        textDecoration: "none",
+        color: '#f1356d',
+        fontWeight: '800',
+        display: 'block'
+    }
+
     return (
         <div className="not-found">
-            <h2>Sorry, looks like you've lost your way :(</h2>
-            <Link to='/'>
-                <p>Back to homepage...</p>
-            </Link>
+            <h1>Sorry, looks like you've lost your way :(</h1>
+            <span><Link style={linkStyle} to='/'>Back to homepage...</Link></span>
         </div>
     );
 }
